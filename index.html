@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nginyam | Cite Rase Bangka Belitung</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #faf6ef;
+        color: #38271d;
+      }
+
+      /* NAVBAR */
+      nav {
+        background: #413934;
+        color: white;
+        padding: 20px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .logo {
+        color: #d2a00a;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 15px;
+      }
+
+      nav a:hover {
+        color: #e9b77d;
+      }
+
+      /* BANNER */
+      .hero {
+        min-height: 470px;
+        background:
+          linear-gradient(90deg, rgba(35, 22, 15, 0.85), rgba(35, 22, 15, 0.2)),
+          url("https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=1600")
+            center/cover;
+
+        display: flex;
+        align-items: center;
+        padding: 60px 10%;
+        color: white;
+      }
+
+      .hero-content {
+        max-width: 550px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        line-height: 1.8;
+        margin-bottom: 25px;
+      }
+
+      .tombol {
+        display: inline-block;
+        background: #d99b5c;
+        color: #38271d;
+        padding: 13px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* SECTION */
+      .section {
+        padding: 60px 8%;
+      }
+
+      .judul {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .judul h2 {
+        font-size: 32px;
+        margin-bottom: 12px;
+      }
+
+      .judul p {
+        color: #806e60;
+        line-height: 1.7;
+      }
+
+      /* PROMO */
+      .promo {
+        background: #e8d5bf;
+        margin: 40px 8%;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+      }
+
+      /* MENU */
+      .menu-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 25px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px #00000012;
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+      }
+
+      .card img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+      }
+
+      .card-content {
+        padding: 20px;
+      }
+
+      .card h3 {
+        margin-bottom: 10px;
+      }
+
+      .card p {
+        color: #806e60;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .harga {
+        color: #b56e32 !important;
+        font-size: 19px !important;
+        font-weight: bold;
+        margin-top: 12px;
+      }
+
+      .tambah {
+        width: 100%;
+        background: #493323;
+        color: white;
+        border: none;
+        padding: 12px;
+        margin-top: 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .tambah:hover {
+        background: #a66b3f;
+      }
+
+      /* KERANJANG */
+      .keranjang {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        margin-top: 50px;
+        box-shadow: 0 5px 15px #00000012;
+      }
+
+      .keranjang h2 {
+        margin-bottom: 20px;
+      }
+
+      .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid #eee;
+        padding: 12px 0;
+      }
+
+      .item button {
+        padding: 5px 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background: #e8d5bf;
+      }
+
+      .total {
+        margin-top: 20px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #a66b3f;
+      }
+
+      .checkout {
+        width: 100%;
+        background: #188b49;
+        color: white;
+        border: none;
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .checkout:hover {
+        background: #126d39;
+      }
+
+      /* ABOUT */
+      .about {
+        background: #e9dfd2;
+        padding: 60px 10%;
+        text-align: center;
+      }
+
+      .about p {
+        max-width: 700px;
+        margin: 20px auto;
+        line-height: 1.8;
+        color: #665344;
+      }
+
+      /* FOOTER */
+      footer {
+        background: #38271d;
+        color: white;
+        text-align: center;
+        padding: 30px;
+      }
+
+      footer p {
+        margin: 8px;
+        font-size: 14px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 600px) {
+        nav {
+          justify-content: center;
+        }
+
+        nav a {
+          margin: 5px;
+        }
+
+        .hero h1 {
+          font-size: 34px;
+        }
+
+        .judul h2 {
+          font-size: 25px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav>
+      <div class="logo">☕ NGINYAM</div>
+
+      <div>
+        <a href="#beranda">Beranda</a>
+        <a href="#menu">Menu</a>
+        <a href="#keranjang">Keranjang 🛒</a>
+        <a href="#tentang">Tentang</a>
+      </div>
+    </nav>
+
+    <!-- BANNER -->
+    <section class="hero" id="beranda">
+      <div class="hero-content">
+        <h1>Nginyam, Rase Lokal Kite!</h1>
+
+        <p>
+          Selamat datang di Nginyam. Nikmati secangkir kopi dan berbagai
+          hidangan khas Bangka Belitung. Tempat berkumpul, bercengkerama, dan
+          menikmati cita rasa daerah.
+        </p>
+
+        <a href="#menu" class="tombol"> Jelajahi Menu → </a>
+      </div>
+    </section>
+
+    <!-- PROMO -->
+    <section class="promo">
+      <h2>🎉 PROMO KHUSUS HARI INI!</h2>
+
+      <p>Nikmati pengalaman ngopi bersama teman dengan harga bersahabat.</p>
+
+      <strong>Nginyam Asik, Rase Dak Asal!</strong>
+    </section>
+
+    <!-- MENU -->
+    <section class="section" id="menu">
+      <div class="judul">
+        <h2>Menu Nginyam</h2>
+
+        <p>
+          Dari minuman tradisional hingga kuliner khas Bangka Belitung, tersedia
+          di sini.
+        </p>
+      </div>
+
+      <h2 style="margin-bottom: 25px">☕ Menu Minuman</h2>
+
+      <div class="menu-container">
+        <!-- KOPI SUSU GULA AREN -->
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600"
+            alt="Kopi Susu"
+          />
+
+          <div class="card-content">
+            <h3>Kopi Susu Gula Aren</h3>
+            <p>Kopi pilihan dengan susu segar dan gula aren.</p>
+            <p class="harga">Rp15.000</p>
+
+            <button
+              class="tambah"
+              onclick="tambahMenu('Kopi Susu Gula Aren', 15000)"
+            >
+              + Tambah Pesanan
+            </button>
+          </div>
+        </div>
+
+        <!-- TAI FU SUI -->
+        <div class="card">
+          <img src="image/pusui.jpeg" alt="Tai Fu Sui" />
+
+          <div class="card-content">
+            <h3>Tai Fu Sui</h3>
+            <p>
+              Minuman khas Bangka dari kacang kedelai dengan cita rasa lokal
+              yang nikmat.
+            </p>
+            <p class="harga">Rp15.000</p>
+
+            <button class="tambah" onclick="tambahMenu('Tai Fu Sui', 18000)">
+              + Tambah Pesanan
+            </button>
+          </div>
+        </div>
+
+        <!-- ES JERUK KUNCI -->
+        <div class="card">
+          <img src="image/esjerukkunci.jpeg" alt="Es Jeruk Kunci" />
+
+          <div class="card-content">
+            <h3>Es Jeruk Kunci</h3>
+            <p>Minuman segar dengan rasa asam dan aroma khas jeruk kunci.</p>
+            <p class="harga">Rp15.000</p>
+
+            <button
+              class="tambah"
+              onclick="tambahMenu('Es Jeruk Kunci', 20000)"
+            >
+              + Tambah Pesanan
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <br /><br />
+
+      <h2 style="margin-bottom: 25px">🍜 Kuliner Khas Bangka Belitung</h2>
+
+      <div class="menu-container">
+        <!-- BONG LI PANG -->
+        <div class="card">
+          <img src="image/bonglipang.jpeg" alt="Bong Li Pang" />
+
+          <div class="card-content">
+            <h3>Bong Li Pang</h3>
+            <p>Kuliner khas Bangka dengan cita rasa lokal yang lezat.</p>
+            <p class="harga">Rp20.000</p>
+
+            <button class="tambah" onclick="tambahMenu('Bong Li Pang', 25000)">
+              + Tambah Pesanan
+            </button>
+          </div>
+        </div>
+
+        <!-- JONGKONG -->
+        <div class="card">
+          <img src="image/jongkong.jpeg" alt="Jongkong" />
+
+          <div class="card-content">
+            <h3>Jongkong</h3>
+            <p>Kue tradisional dengan tekstur lembut dan rasa manis.</p>
+            <p class="harga">Rp15.000</p>
+
+            <button class="tambah" onclick="tambahMenu('Jongkong', 18000)">
+              + Tambah Pesanan
+            </button>
+          </div>
+        </div>
+
+        <!-- MARTABAK -->
+        <div class="card">
+          <img src="image/martabak.jpeg" alt="Martabak" />
+
+          <div class="card-content">
+            <h3>Martabak</h3>
+            <p>Cemilan martabak yang cocok dinikmati bersama kopi.</p>
+            <p class="harga">Rp25.000</p>
+
+            <button class="tambah" onclick="tambahMenu('Martabak', 12000)">
+              + Tambah Pesanan
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- KERANJANG -->
+      <div class="keranjang" id="keranjang">
+        <h2>🛒 Keranjang Pesanan</h2>
+
+        <div id="daftar-pesanan">
+          <p>Belum ada menu yang dipilih.</p>
+        </div>
+
+        <div class="total">Total: <span id="total">Rp0</span></div>
+
+        <button class="checkout" onclick="pesanWhatsApp()">
+          Pesan Melalui WhatsApp
+        </button>
+      </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section class="about" id="tentang">
+      <h2>Tentang Nginyam</h2>
+
+      <p>
+        Nginyam merupakan kedai yang mengangkat cita rasa dan budaya kuliner
+        Bangka Belitung. Kami menghadirkan berbagai pilihan kopi, minuman, dan
+        makanan dengan harga terjangkau. Melalui Nginyam, kami ingin
+        memperkenalkan kekayaan kuliner lokal kepada masyarakat sekaligus
+        menghadirkan tempat yang nyaman untuk berkumpul dan menikmati waktu
+        bersama.
+      </p>
+
+      <h3>Rase Lokal, Cerite Kite! ❤️</h3>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <h3>☕ NGINYAM</h3>
+
+      <p>Bangga dengan Cita Rasa Lokal Bangka Belitung.</p>
+
+      <p>© 2026 Nginyam. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+      let keranjang = [];
+
+      function tambahMenu(nama, harga) {
+        let item = keranjang.find((menu) => menu.nama === nama);
+
+        if (item) {
+          item.jumlah++;
+        } else {
+          keranjang.push({
+            nama: nama,
+            harga: harga,
+            jumlah: 1,
+          });
+        }
+
+        tampilkanKeranjang();
+      }
+
+      function tampilkanKeranjang() {
+        let daftar = document.getElementById("daftar-pesanan");
+
+        let total = 0;
+
+        daftar.innerHTML = "";
+
+        if (keranjang.length === 0) {
+          daftar.innerHTML = "<p>Belum ada menu yang dipilih.</p>";
+        }
+
+        keranjang.forEach((item, index) => {
+          let subtotal = item.harga * item.jumlah;
+
+          total += subtotal;
+
+          daftar.innerHTML += `
+            <div class="item">
+                <div>
+                    <strong>${item.nama}</strong><br>
+                    Rp${item.harga.toLocaleString("id-ID")}
+                    x ${item.jumlah}
+                </div>
+
+                <div>
+                    <button onclick="ubahJumlah(${index},-1)">-</button>
+                    <button onclick="ubahJumlah(${index},1)">+</button>
+                </div>
+            </div>
+        `;
+        });
+
+        document.getElementById("total").innerText =
+          "Rp" + total.toLocaleString("id-ID");
+      }
+
+      function ubahJumlah(index, perubahan) {
+        keranjang[index].jumlah += perubahan;
+
+        if (keranjang[index].jumlah <= 0) {
+          keranjang.splice(index, 1);
+        }
+
+        tampilkanKeranjang();
+      }
+
+      function pesanWhatsApp() {
+        if (keranjang.length === 0) {
+          alert("Silakan pilih menu terlebih dahulu!");
+          return;
+        }
+
+        let pesan = "Halo Nginyam, saya ingin memesan:\n\n";
+
+        let total = 0;
+
+        keranjang.forEach((item) => {
+          let subtotal = item.harga * item.jumlah;
+
+          total += subtotal;
+
+          pesan +=
+            item.nama +
+            " x " +
+            item.jumlah +
+            " = Rp" +
+            subtotal.toLocaleString("id-ID") +
+            "\n";
+        });
+
+        pesan += "\nTotal Pesanan: Rp" + total.toLocaleString("id-ID");
+
+        pesan += "\n\nTerima kasih!";
+
+        // NOMOR WA
+        let nomor = "6283185635082";
+
+        let url =
+          "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
+
+        window.open(url, "_blank");
+      }
+    </script>
+  </body>
+</html>
